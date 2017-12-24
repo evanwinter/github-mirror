@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> My Github Projects </title>
+	<style type="text/css">
+		li {
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+
+<ul id="all-projects">
+	<!-- All public github repositories will appear here. -->
+</ul>
+
+</body>
+<script type="text/javascript">
+	const apiUrl = "https://api.github.com/users/evanwinter/repos"
+	const allProjects = document.getElementById('all-projects');
+
+	function createNode(element) {
+	    return document.createElement(element);
+	}
+
+	function append(parent, el) {
+		console.log('parent: ' + parent)
+		console.log('el: ' + el.innerHTML);
+	  return parent.appendChild(el);
+	}
+
+	fetch(apiUrl)
+	  .then((resp) => resp.json())
+	  .then(function(data) {
+	  	let repositories = data;
+	  	return repositories.map(function(repository) {
+	      let project = createNode('li'),
+			      url = createNode('a'),
+	      		language = createNode('span'),
+	      		description = createNode('span')
+    		url.href = repository.svn_url;
+    		url.target = '_blank';
+    		url.innerHTML = repository.name + '<br>';
+	      language.innerHTML = repository.language + '<br>';
+	      description.innerHTML = repository.description + '<br><br>';
+	      append(project, url);
+	      append(project, language);
+	      append(project, description);
+	      append(allProjects, project);
+	    })
+	  })
+</script>
+</html>
