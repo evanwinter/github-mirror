@@ -13,10 +13,12 @@ body {
 .link-to-me {
 	font-weight: 600;
 	font-size: 20px;
+	color: black;
 }
 
 .link-to-me:hover {
 	color: blue;
+	text-decoration: none;
 }
 
 ul {
