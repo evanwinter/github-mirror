@@ -10,6 +10,15 @@ body {
 	margin: 20px auto;
 }
 
+.link-to-me {
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.link-to-me:hover {
+	color: blue;
+}
+
 ul {
 	padding: 0;
 }
