@@ -4,7 +4,7 @@ Fetch and display a user's public GitHub repositories as they would appear on a 
 
 ## Usage
 
-Go to [gh-repos.surge.sh](http://gh-repos.surge.sh) and search a GitHub username!
+Go to [reporenderer.surge.sh](http://reporenderer.surge.sh) and search a GitHub username!
 
 <!-- ## Usage
 
