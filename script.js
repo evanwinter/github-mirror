@@ -40,11 +40,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const api = `https://api.github.com/users/${username}/repos?client_id=${config.client_id}&client_secret=${config.client_secret}&per_page=100`
     const projects = document.getElementById('gh-repos');
 
-    projects.innerHTML = "";
+    projects.innerHTML = "Loading...";
 
     fetch(api)
     .then((resp) => resp.json())
     .then((data) => {
+      projects.innerHTML = "";
       let repositories = data;
       return repositories.map((repository) => {
         let project = createNode('li'),
@@ -74,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           stars.innerHTML = "";
         }
         stars.className = 'stars';
+
         
         append(project, url);
         append(project, description);
